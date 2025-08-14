@@ -21,7 +21,7 @@ Analog MUX-> The ADC front-end has a multiplexer that can select one input chann
                            -> This uses 16 physical pins (2 per differential channel).
                            -> Differential inputs help reject common-mode noise.
                            -> Differential: (CH0–CH1), (CH2–CH3), …, (CH14–CH15) = 8 combos.
-                          
+                        
 
 16 single-ended inputs-> Single-ended means the ADC measures the voltage of one pin with respect to a common reference(Ground).
                       -> Single-ended uses fewer pins per channel, so you can measure more signals.
@@ -32,6 +32,8 @@ Application differential inputs-> Bridge Sensors (e.g., load cells, strain gauge
                                -> Audio and Communication Signals.
                                -> Battery Cell Voltage Measurement.
                                -> Instrumentation and Medical Equipment etc.
+                               -> To measure +ve and -ve voltages.
+                               -> Long distance eg PLC etc.
 KeyPoints-> The signal is low amplitude (microvolts to millivolts).
          -> There’s a lot of common-mode noise.
          -> The sensor or source is not referenced to system ground.
