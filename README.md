@@ -1,6 +1,23 @@
 # ADS125H_Driver
 Driver for ADS125H
 
+Delta ADC-> 
+
+Feature               | SAR ADC (Normal)                                                                  | Delta-Sigma ADC
+----------------------|-----------------------------------------------------------------------------------|---------------------------------------------------------------------------
+How it works          | Uses a binary search with a DAC and comparator to find the input voltage in N     | Uses oversampling + modulator to create a high-speed bitstream, then
+                      | steps.                                                                            | digitally filters it.
+Samples per output    | 1 sample → 1 conversion                                                           | Many oversampled bits → averaged into one output
+Output timing         | Instant after conversion cycle                                                    | Delayed because of digital filtering
+Speed vs Resolution   | Fast (hundreds of kSPS to MSPS), resolution usually 8–16 bits. Best for signals   | Slower (a few SPS to hundreds of kSPS), very high resolution (16–32 bits).
+                      | that change quickly.                                                              | Best for slowly changing, low-frequency signals.
+Noise handling        | Noise performance depends on analog front-end design. Requires good PCB layout    | Built-in noise shaping and filtering give excellent low-noise performance
+                      | and low-noise op-amps.                                                            | — ideal for small sensor signals.
+Differential inputs   | Supported, but noise rejection depends heavily on front-end design.               | Oversampling + filtering gives better common-mode noise rejection (CMRR).
+                      |                                                                                   | Often supports ±10 V or ±5 V ranges directly with high accuracy.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 Programmable data rate 133KSPS-> How fast the ADC samples the input signal.
                               -> Up to 133 ksps = The highest rate it can sample is 133 thousand samples per second.
                               -> At 133 ksps, the ADC takes 1 sample every ~7.52 µs: 1/133,000
