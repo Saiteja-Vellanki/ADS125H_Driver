@@ -112,7 +112,7 @@ typedef union
     {
         uint8_t reg_map_crc_faultn  : 1;
         uint8_t mem_internal_faultn : 1;
-        uint8_t crc_fault_page       : 6;
+        uint8_t crc_fault_page      : 6;
     }bits;
 }Digital_Status_reg;
 
@@ -408,6 +408,8 @@ typedef union
     }bits;
 }Gpio_Fwd_Cfg_reg;
 
-
+void Read_dev_id(void);
+uint32_t Adc_Read(uint8_t reg_add);
+uint32_t Adc_Write(uint8_t reg_add, uint32_t data);
 
 #endif
