@@ -68,3 +68,7 @@ Internal Reference->The internal reference in an ADC is basically a built-in, fa
 
 
          
+Coding Point of view-> When to use struct pointer/struct variable while passing parameter to a function
+                    -> Best Practice for Embedded
+                    -> If struct is small (≤4–8 bytes) → pass by value (cleaner, no risk of pointer issues).
+                    -> If struct is large (>8 bytes) or needs to be modified → pass by pointer. 
