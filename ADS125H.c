@@ -19,6 +19,20 @@ Read FIFO Buffer                  0x0F                        Don't care        
 #define ADDRESS_SIXBITS        0x3F
 
 
+
+void Adc_clk_init(void)
+{
+    Clk_Digital_Cfg_reg clk_config;
+    
+    clk_config.all =0;
+    clk_config.bits.clk_sel = 0;
+    clk_config.bits.clk_div = 2;
+
+    Adc_Write(CLK_DIGITAL_CFG, clk_config.all);
+
+    
+}
+
 uint32_t Adc_Read(uint8_t reg_add)
 {
     uint32_t tx_buf = 0;
