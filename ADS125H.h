@@ -408,8 +408,11 @@ typedef union
     }bits;
 }Gpio_Fwd_Cfg_reg;
 
+void RSPI0_Init(void);
+uint32_t RSPI0_Transfer(uint32_t data);
+void Adc_clk_init(void);
 void Read_dev_id(void);
 uint32_t Adc_Read(uint8_t reg_add);
-uint32_t Adc_Write(uint8_t reg_add, uint32_t data);
+void Adc_Write(uint8_t reg_add, uint8_t data);
 
 #endif
